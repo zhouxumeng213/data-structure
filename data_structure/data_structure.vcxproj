@@ -79,8 +79,10 @@
     <ClCompile Include="AVLTree.cpp" />
     <ClCompile Include="BSTree.cpp" />
     <ClCompile Include="heap.cpp" />
+    <ClCompile Include="queue.cpp" />
     <ClCompile Include="RBTree.cpp" />
     <ClCompile Include="SList.cpp" />
+    <ClCompile Include="stack.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
