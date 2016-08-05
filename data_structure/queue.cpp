@@ -1,17 +1,21 @@
+#include<iostream>
+using namespace std;
 #include<assert.h>
+template<class T>
+struct Node
+{
+	Node* _next;	//指向下一个节点的指针
+	T _data;		//数据
+
+	Node<T>(const T& x)
+		:_next(NULL)
+		, _data(x)
+	{}
+};
 template<class T>
 class Queue
 {
-	struct Node
-	{
-		Node* _next;
-		T _data;
-
-		Node(const T& x)
-			:_next(NULL)
-			, _data(x)
-		{}
-	};
+	typedef Node<T> Node;
 public:
 	Queue()
 		:_head(NULL)
@@ -59,11 +63,13 @@ public:
 		}
 		--_size;
 	}
+	//返回队列尾的数据
 	const T& Back()
 	{
 		assert(_tail);
 		_tail->_data;
 	}
+	//返回队列头的数据
 	const T& Front()
 	{
 		assert(_head);
@@ -76,13 +82,12 @@ public:
 	void Print()
 	{
 		Node* begin = _head;
-		cout << "Queue Head<-";
 		while (begin)
 		{
-			cout << begin->_data << "<-";
+			cout << begin->_data << " ";
 			begin = begin->_next;
 		}
-		cout << "Queue Tail" << endl;
+		cout << endl;
 	}
 	void Clear()
 	{
@@ -102,9 +107,9 @@ public:
 		return _size;
 	}
 private:
-	Node*  _head;
-	Node*  _tail;
-	int _size;
+	Node*  _head;	//指向链表头的指针
+	Node*  _tail;	//指向链表尾的指针
+	int _size;		//数据的个数
 };
 void TestQueue()
 {
@@ -121,4 +126,9 @@ void TestQueue()
 	q.Pop();
 
 	q.Print();
+}
+int main()
+{
+	TestQueue();
+	return 0;
 }
